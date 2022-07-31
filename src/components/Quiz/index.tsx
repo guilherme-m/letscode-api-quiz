@@ -1,13 +1,27 @@
 import { Link } from "react-router-dom"
+import { PerguntaType } from "../../App"
+import { Pergunta } from "../Pergunta"
 
-export const Quiz = ({}) => {
-    
-    return (
-      <>
-        <div>
-          OI
-        </div>
-        <Link to='/'>Pagina Inicial</Link>
-      </>
-    )
+type QuizProps = {
+  idPergunta: number
+  setIdPergunta: React.Dispatch<React.SetStateAction<number>>
+
+  perguntas: PerguntaType[]
+
+  setPontos: React.Dispatch<React.SetStateAction<number>>
+
+}
+
+export const Quiz = ({ idPergunta, setIdPergunta, perguntas, setPontos }: QuizProps) => {
+
+  return (
+    <>
+      <Pergunta
+        perguntas={perguntas}
+        idPergunta={idPergunta}
+        setIdPergunta={setIdPergunta}
+        setPontos={setPontos} />
+      <Link to='/'>Voltar para a página inicial</Link>
+    </>
+  )
 }
